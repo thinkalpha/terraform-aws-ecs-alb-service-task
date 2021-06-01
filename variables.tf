@@ -343,6 +343,12 @@ variable "exec_enabled" {
   default     = false
 }
 
+variable "ecs_exec_enabled" {
+  type        = bool
+  description = "Specifies whether to enable Amazon ECS Exec for the tasks within the service"
+  default     = false
+}
+
 variable "enable_ecs_service_role" {
   type        = bool
   default     = false

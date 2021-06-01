@@ -326,7 +326,7 @@ resource "aws_ecs_service" "ignore_changes_task_definition" {
   iam_role                           = local.enable_ecs_service_role ? coalesce(var.service_role_arn, join("", aws_iam_role.ecs_service.*.arn)) : null
   wait_for_steady_state              = var.wait_for_steady_state
   force_new_deployment               = var.force_new_deployment
-  enable_execute_command             = var.exec_enabled
+  enable_execute_command             = var.ecs_exec_enabled
 
   dynamic "capacity_provider_strategy" {
     for_each = var.capacity_provider_strategies
@@ -411,7 +411,7 @@ resource "aws_ecs_service" "default" {
   iam_role                           = local.enable_ecs_service_role ? coalesce(var.service_role_arn, join("", aws_iam_role.ecs_service.*.arn)) : null
   wait_for_steady_state              = var.wait_for_steady_state
   force_new_deployment               = var.force_new_deployment
-  enable_execute_command             = var.exec_enabled
+  enable_execute_command             = var.ecs_exec_enabled
 
   dynamic "capacity_provider_strategy" {
     for_each = var.capacity_provider_strategies
